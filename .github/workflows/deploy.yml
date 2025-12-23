@@ -1,0 +1,34 @@
+name: Deploy DTTF Generator Container
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  deploy-container:
+    runs-on: icd-dashboard
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build Docker image
+      run: docker build -t dttf-gen4 .
+
+    - name: Stop and remove existing container
+      run: |
+        echo "Stopping existing Docker container..."
+        docker stop dttf-container || true
+        docker rm dttf-container || true
+
+    - name: Run Docker container
+      # Run container with restart policy and port mapping
+      run: docker run -d --restart unless-stopped -p 5005:5005 --name dttf-container dttf-gen4
+
+    - name: Verify deployment
+      run: |
+        echo "Verifying container status..."
+        docker ps | grep dttf-container
+
+    - name: Clean up old images (optional)
+      run: docker image prune -f

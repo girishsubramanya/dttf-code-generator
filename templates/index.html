@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DTTF Test Case Generator</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="{{ url_for('static', filename='images/DTTF_logo.png') }}" alt="DTTF Logo" style="height: 40px; margin-right: 15px;">
+            <h1>Daimler Truck Test Framework : Test Case Generator</h1>
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="design">Design</button>
+                <button class="tab-btn" data-tab="import">Import</button>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 20px;">
+            <div class="user-nav" style="font-size: 13px;">
+                <span style="color: #bbb; margin-right: 10px;">{{ current_user.username }}</span>
+                {% if current_user.is_admin %}
+                    <a href="{{ url_for('admin') }}" style="color: white; text-decoration: none; margin-right: 10px;">Admin</a>
+                {% endif %}
+                <a href="{{ url_for('change_password') }}" style="color: white; text-decoration: none; margin-right: 10px;">Password</a>
+                <a href="{{ url_for('logout') }}" style="color: #cf222e; text-decoration: none;">Logout</a>
+            </div>
+
+            <div class="header-actions">
+                <button id="generate-btn">Generate DTTF TC File</button>
+                <button id="download-btn" style="display: none; margin-left: 10px; background-color: #0969da;">Download</button>
+            </div>
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div style="background-color: #d4edda; color: #155724; padding: 10px; margin: 10px; border-radius: 4px; border: 1px solid #c3e6cb;">
+                {% for message in messages %}
+                    {{ message }}<br>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <!-- Tab Content: Design -->
+    <div id="tab-design" class="tab-content active">
+        <div class="container">
+            <!-- Sidebar: Toolbox -->
+            <div class="sidebar toolbox">
+                <h3>Toolbox</h3>
+
+                <div class="toolbox-section">
+                    <h4>DTTF Test Cases</h4>
+                    <div class="draggable-item" draggable="true" data-type="testcase" data-default-name="Test Case">New Test Case</div>
+                </div>
+
+                <div class="toolbox-section">
+                    <h4>Keywords</h4>
+                    <div id="keywords-tree">
+                        <!-- Tree will be rendered here by JS -->
+                    </div>
+                </div>
+
+                <div class="toolbox-section">
+                    <h4>Custom</h4>
+                    <div class="draggable-item" draggable="true" data-type="custom_keyword">Custom Keyword</div>
+                </div>
+            </div>
+
+            <!-- Main: Canvas -->
+            <div class="main-content">
+                <div class="canvas" id="workflow-canvas">
+
+                    <div class="config-sections">
+                        <div class="settings-section">
+                            <label>Settings / Libraries</label>
+                            <textarea id="settings-input" placeholder="Library    SeleniumLibrary(Any stardard Robotframework libraries)&#10;Resource    keywords.robot"></textarea>
+                        </div>
+
+                        <div class="variables-section">
+                            <label>Variables</label>
+                            <div class="variables-input-group">
+                                <select id="var-type">
+                                    <option value="Scalar">Scalar (${})</option>
+                                    <option value="List">List (@{})</option>
+                                    <option value="Dictionary">Dictionary (&amp;{})</option>
+                                </select>
+                                <input type="text" id="var-name" placeholder="Name (e.g. URL)">
+                                <button id="add-var-btn">Add</button>
+                            </div>
+
+                            <!-- Dictionary Key/Value Input (Hidden by default) -->
+                            <div id="dict-input-group" style="display: none; margin-bottom: 5px; gap: 5px;">
+                                <input type="text" id="dict-key" placeholder="Key" style="flex: 1;">
+                                <input type="text" id="dict-value" placeholder="Value" style="flex: 2;">
+                                <button id="add-dict-item-btn" style="width: auto;">Add Item</button>
+                            </div>
+
+                            <textarea id="var-value" placeholder="Value (for List/Dict, use separate lines for items)" rows="2"></textarea>
+
+                            <div id="variables-list" class="variables-list">
+                                <!-- Variables will be listed here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="drop-zone" id="test-cases-zone">
+                        <div class="zone-label">Drop Test Cases Here</div>
+                        <!-- Test Cases will be dropped here -->
+                    </div>
+                </div>
+
+                <div class="preview-section">
+                    <h3>DTTF Testcase File Preview</h3>
+                    <textarea id="robot-output" readonly></textarea>
+                </div>
+            </div>
+
+            <!-- Sidebar: Properties -->
+            <div class="sidebar properties">
+                <h3>Properties</h3>
+                <div id="properties-form">
+                    <p class="placeholder-text">Select an element to edit its properties.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tab Content: Import -->
+    <div id="tab-import" class="tab-content">
+        <div class="import-container">
+            <h2>Import DTTF Testcase File</h2>
+            <p>Upload an existing <code>.robot</code> file to edit it in the generator.</p>
+
+            <div class="file-upload-wrapper">
+                <input type="file" id="robot-file-upload" accept=".robot,.txt">
+                <button id="import-btn" class="primary-btn">Import File</button>
+            </div>
+
+            <div id="import-status"></div>
+        </div>
+    </div>
+
+    <!-- Pass robot config to JS -->
+    <script>
+        window.robotConfig = {{ robot_config | tojson | safe }};
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>&copy; Vehicle Compute Platform, Build & Integration - DTICI</span>
+            <button id="contact-btn" class="footer-btn">Contact</button>
+        </div>
+    </footer>
+
+    <!-- Contact Modal -->
+    <div id="contact-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Contact Information</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p><strong>Girish Subramanya</strong></p>
+                <p>Email: <a href="mailto:girish.subramanya@daimlertruck.com">girish.subramanya@daimlertruck.com</a></p>
+                <p class="modal-meta">VCP-B&I, DTICI</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

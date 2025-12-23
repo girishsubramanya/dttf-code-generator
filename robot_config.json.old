@@ -1,0 +1,151 @@
+[
+    {
+        "category": "Browser",
+        "subcategories": [
+            {
+                "category": "Navigation",
+                "keywords": [
+                    {
+                        "name": "Open Browser",
+                        "doc": "Opens a new browser instance to the optional url.",
+                        "args": [
+                            { "name": "url", "default": "https://www.google.com" },
+                            { "name": "browser", "default": "chrome" }
+                        ]
+                    },
+                    {
+                        "name": "Close Browser",
+                        "doc": "Closes the current browser.",
+                        "args": []
+                    },
+                    {
+                        "name": "Go To",
+                        "doc": "Navigates the current browser window to the provided url.",
+                        "args": [
+                            { "name": "url", "default": "" }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "Interaction",
+                "keywords": [
+                    {
+                        "name": "Click Element",
+                        "doc": "Click the element identified by locator.",
+                        "args": [
+                            { "name": "locator", "default": "" }
+                        ]
+                    },
+                    {
+                        "name": "Input Text",
+                        "doc": "Types the given text into the text field identified by locator.",
+                        "args": [
+                            { "name": "locator", "default": "" },
+                            { "name": "text", "default": "" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "System",
+        "keywords": [
+            {
+                "name": "Log",
+                "doc": "Logs the given message with the given level.",
+                "args": [
+                    { "name": "message", "default": "Hello World" },
+                    { "name": "level", "default": "INFO" }
+                ]
+            },
+            {
+                "name": "Sleep",
+                "doc": "Pauses the test executed for the given time.",
+                "args": [
+                    { "name": "time", "default": "1s" }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Custom Library",
+        "subcategories": [
+            {
+                "category": "User Management",
+                "keywords": [
+                    {
+                        "name": "Create User",
+                        "doc": "Creates a new user.",
+                        "args": [
+                            { "name": "username", "default": "" },
+                            { "name": "password", "default": "" },
+                            { "name": "role", "default": "guest" }
+                        ]
+                    },
+                    {
+                        "name": "Delete User",
+                        "doc": "Deletes a user.",
+                        "args": [
+                            { "name": "username", "default": "" }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "CAN Control",
+        "subcategories": [
+            {
+                "category": "CAN Genric",
+                "keywords": [
+                    {
+                        "name": "set_can_signal",
+                        "doc": "sets and verifies the CAN signal.",
+                        "args": [
+                            { "name": "CAN CHANNEL NAME", "default": "" },
+                            { "name": "CAN SIGNAL NAME", "default": "" },
+                            { "name": "CAN SIGNAL VALUE", "default": "" }
+                        ]
+                    },
+                    {
+                        "name": "verify_can_signal",
+                        "doc": "verifies the given can signal value against the provided value",
+                        "args": [
+                            { "name": "CAN CHANNEL NAME", "default": "" },
+                            { "name": "CAN SIGNAL NAME", "default": "" },
+                            { "name": "EXPETCTED SIGNAL VALUE", "default": "" }
+                        ]
+                    },
+                    {
+                        "name": "get_can_signal",
+                        "doc": "Gets the value of a CAN signal",
+                        "args": [
+                            { "name": "CAN CHANNEL NAME", "default": "" },
+                            { "name": "CAN SIGNAL NAME", "default": "" }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "CANoe specific",
+                "keywords": [
+                    {
+                        "name": "open_configuration",
+                        "doc": "Opens the CANoe configuration from the path",
+                        "args": [
+                            { "name": "File name Full path", "default": "" }
+                        ]
+                    },
+                    {
+                        "name": "measurement_check",
+                        "doc": "Checks if CANoe is running"
+                    }
+                ]
+
+            }
+        ]
+    }
+]

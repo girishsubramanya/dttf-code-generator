@@ -1,0 +1,1758 @@
+[
+
+
+    {
+        "category": "System",
+        "keywords": [
+            {
+                "name": "Log",
+                "doc": "Logs the given message with the given level.",
+                "args": [
+                    {
+                        "name": "message",
+                        "default": "Hello World"
+                    },
+                    {
+                        "name": "level",
+                        "default": "INFO"
+                    }
+                ]
+            },
+            {
+                "name": "Sleep",
+                "doc": "Pauses the test executed for the given time.",
+                "args": [
+                    {
+                        "name": "time",
+                        "default": "1s"
+                    }
+                ]
+            }
+        ]
+    },
+
+    {
+        "category": "CAN Control",
+        "subcategories": [
+            {
+                "category": "CAN Generic",
+                "keywords": [
+                    {
+                        "name": "set_can_signal",
+                        "doc": "sets and verifies the CAN signal.",
+                        "args": [
+                            {
+                                "name": "CAN CHANNEL NAME",
+                                "default": ""
+                            },
+                            {
+                                "name": "CAN SIGNAL NAME",
+                                "default": ""
+                            },
+                            {
+                                "name": "CAN SIGNAL VALUE",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "verify_can_signal",
+                        "doc": "verifies the given can signal value against the provided value",
+                        "args": [
+                            {
+                                "name": "CAN CHANNEL NAME",
+                                "default": ""
+                            },
+                            {
+                                "name": "CAN SIGNAL NAME",
+                                "default": ""
+                            },
+                            {
+                                "name": "EXPETCTED SIGNAL VALUE",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "get_can_signal",
+                        "doc": "Gets the value of a CAN signal",
+                        "args": [
+                            {
+                                "name": "CAN CHANNEL NAME",
+                                "default": ""
+                            },
+                            {
+                                "name": "CAN SIGNAL NAME",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "load_can_signal_from_csv_and_set_value",
+                        "doc": "Loads & sets signal values from CSV.",
+                        "args": [
+                            {
+                                "name": "csv_file_name",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "load_can_signal_from_csv_and_verify_value",
+                        "doc": "Loads & verifies signal values from CSV.",
+                        "args": [
+                            {
+                                "name": "csv_file_name",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "check_can_signal_state",
+                        "doc": "Checks signal state True/False.",
+                        "args": [
+                            {
+                                "name": "channel",
+                                "default": ""
+                            },
+                            {
+                                "name": "can_signal_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "state",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "verify_signal_stability",
+                        "doc": "Verifies signal remains unchanged for given duration.",
+                        "args": [
+                            {
+                                "name": "channel",
+                                "default": ""
+                            },
+                            {
+                                "name": "can_signal_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "expected_can_signal_value",
+                                "default": ""
+                            },
+                            {
+                                "name": "duration",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "set_can_signal_stop_on_failure",
+                        "doc": "Same as set_can_signal but stops on failure.",
+                        "args": [
+                            {
+                                "name": "channel",
+                                "default": ""
+                            },
+                            {
+                                "name": "can_signal_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "can_signal_value",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "CANoe specific",
+                "keywords": [
+                    {
+                        "name": "open_configuration",
+                        "doc": "Opens the CANoe configuration from the path",
+                        "args": [
+                            {
+                                "name": "File name Full path",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "measurement_check",
+                        "doc": "Checks if CANoe is running"
+                    },
+                    {
+                        "name": "stop_measurement",
+                        "doc": "Stops an ongoing CANoe or measurement session."
+                    },
+                    {
+                        "name": "Certificate Authentication",
+                        "doc": "Performs authentication via certificate."
+                    },
+                    {
+                        "name": "set_canoe_sys_var_str",
+                        "doc": "Sets string system variable. Example: MyVars / StartFlag / 1",
+                        "args": [
+                            {
+                                "name": "namespace",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_value",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "set_canoe_sys_var_int",
+                        "doc": "Sets integer system variable. Example: MyVars / StartFlag / 1",
+                        "args": [
+                            {
+                                "name": "namespace",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_value",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "set_canoe_sys_var_float",
+                        "doc": "Sets float system variable. Example: MyVars / StartFlag / 1.23",
+                        "args": [
+                            {
+                                "name": "namespace",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_value",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "get_canoe_sys_var",
+                        "doc": "Reads a system variable and returns value.",
+                        "args": [
+                            {
+                                "name": "namespace",
+                                "default": ""
+                            },
+                            {
+                                "name": "sys_var_name",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "start_replay_block",
+                        "doc": "Starts the specified Replay Block. Example: Replay1",
+                        "args": [
+                            {
+                                "name": "block_name",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "stop_replay_block",
+                        "doc": "Stops the specified Replay Block. Example: Replay1",
+                        "args": [
+                            {
+                                "name": "block_name",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "set_recording_file_path_for_replay_block",
+                        "doc": "Sets recording file path for replay block. Example: Replay1 path_cfg",
+                        "args": [
+                            {
+                                "name": "block_name",
+                                "default": ""
+                            },
+                            {
+                                "name": "path",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+	{
+        "category": "Diagnostics",
+        "keywords": [
+            {
+                "name": "get_diag_response_req_via_bytes",
+                "doc": "Sends raw UDS request & returns response. Example: 22 F1 90",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_diag_req_via_bytes",
+                "doc": "Sends raw UDS request. Example: 22 F1 91",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_diag_req_via_qualifier",
+                "doc": "Sends UDS request using qualifier name. Example: Default_Start",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_diag_req_via_bytes_validate",
+                "doc": "Sends structured request expecting positive response. Example: Request=10 01, Data=50 01 02 01 01",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_data",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_diag_req_via_id_validate",
+                "doc": "Sends structured ID request expecting positive response. Example: Default_Start",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_data",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_req_via_bytes_expect_nrc",
+                "doc": "Sends request expecting NRC negative response. Example: 7F 2E 33",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_data",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_req_via_id_expect_nrc",
+                "doc": "Sends ID request expecting NRC. Example: Write_memory",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_data",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_req_via_bytes_expect_nr",
+                "doc": "Sends request expecting no response. Example: 3E 00",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_req_via_id_expect_nr",
+                "doc": "Sends ID request expecting no response. Example: Tester_Present",
+                "args": [
+                    {
+                        "name": "diagnostic_request",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "req_bytes_verify_dtc_triggered",
+                "doc": "Verifies DTC from bytes request. Example: 19 02 FF",
+                "args": [
+                    {
+                        "name": "in_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_dtc",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "req_id_verify_dtc_triggered",
+                "doc": "Verifies DTC using qualifier. Example: 19 02 FF",
+                "args": [
+                    {
+                        "name": "in_request",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_dtc",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "diag_set_parameter",
+                "doc": "Sets diagnostic parameter. Example: dtc_status_mask",
+                "args": [
+                    {
+                        "name": "pid_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "parameter_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Android Control Keywords",
+        "keywords": [
+            {
+                "name": "capture_android_image",
+                "doc": "Capture Android image and verify using vision comparison. captured_image_name =captured image, reference_image_name =trained reference image, test_type_key =image/false",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_android_image_and_text",
+                "doc": "Capture Android image, verify by image/text/OCR. ocr_lan =language, expected_text =expected text to validate",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    },
+                    {
+                        "name": "ocr_lan",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_text",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_android_image_save_image",
+                "doc": "Capture Android image and save it locally",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "launch_android_application",
+                "doc": "Launch Android app using application.json",
+                "args": [
+                    {
+                        "name": "app_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_tap_app_by_ref_image",
+                "doc": "Tap app based on reference image (App images folder)",
+                "args": [
+                    {
+                        "name": "app_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_tap_screen_by_coordinate",
+                "doc": "Tap screen using (x,y) coordinates",
+                "args": [
+                    {
+                        "name": "x",
+                        "default": ""
+                    },
+                    {
+                        "name": "y",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_touch_icon_by_name",
+                "doc": "Tap icon based on touch_coordinate.json",
+                "args": [
+                    {
+                        "name": "icon_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_input_keyevent",
+                "doc": "Sends input key event to Android device",
+                "args": [
+                    {
+                        "name": "key_code",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_swipe_left",
+                "doc": "Swipe left on screen"
+            },
+            {
+                "name": "android_swipe_right",
+                "doc": "Swipe right on screen"
+            },
+            {
+                "name": "android_swipe_up",
+                "doc": "Swipe up on screen"
+            },
+            {
+                "name": "android_swipe_down",
+                "doc": "Swipe down on screen"
+            },
+            {
+                "name": "android_tap_home_button",
+                "doc": "Tap Android home button"
+            },
+            {
+                "name": "android_capture_screenshots",
+                "doc": "Capture multiple screenshots with delay and count",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "delay",
+                        "default": ""
+                    },
+                    {
+                        "name": "numbers",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_enter_text",
+                "doc": "Enter text into Android device",
+                "args": [
+                    {
+                        "name": "input_text",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_capture_log",
+                "doc": "Capture ADB logcat logs for duration (seconds)",
+                "args": [
+                    {
+                        "name": "file_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "duration",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_swipe",
+                "doc": "Swipe from (x1,y1) -> (x2,y2)",
+                "args": [
+                    {
+                        "name": "x1",
+                        "default": ""
+                    },
+                    {
+                        "name": "y1",
+                        "default": ""
+                    },
+                    {
+                        "name": "x2",
+                        "default": ""
+                    },
+                    {
+                        "name": "y2",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_touch_element_by_id",
+                "doc": "Touch Android element by resource ID (from uidump.xml)",
+                "args": [
+                    {
+                        "name": "id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_touch_element_by_name",
+                "doc": "Touch element using element name",
+                "args": [
+                    {
+                        "name": "name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_record_video",
+                "doc": "Record screen video (.mp4) for given duration",
+                "args": [
+                    {
+                        "name": "video_file_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "duration",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "get_adb_device_info",
+                "doc": "Get ADB device connection info"
+            },
+            {
+                "name": "android_wifi_function",
+                "doc": "Enable/Disable WiFi (WiFi Enable / WiFi Disable)",
+                "args": [
+                    {
+                        "name": "Function",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "android_long_press",
+                "doc": "Perform long press at coordinates from swipe_duration.json",
+                "args": [
+                    {
+                        "name": "x1",
+                        "default": ""
+                    },
+                    {
+                        "name": "x2",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "install_app",
+                "doc": "Install application"
+            },
+            {
+                "name": "enable_adb_and_launch_app",
+                "doc": "Enable ADB, verify device, and launch app",
+                "args": [
+                    {
+                        "name": "app_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "verify_vhal_property_ID_value",
+                "doc": "Verify VHAL property ID value matches expected CAN signal",
+                "args": [
+                    {
+                        "name": "property_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "can_signal_value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "get_vhal_property_value",
+                "doc": "Get VHAL property ID value",
+                "args": [
+                    {
+                        "name": "Property_ID",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "verify_VHAL_value_with_signal_name",
+                "doc": "Verify VHAL value matches expected CAN signal",
+                "args": [
+                    {
+                        "name": "signal_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "can_signal_value",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Hmievo Hisip",
+        "keywords": [
+            {
+                "name": "send_signal_ap_to_vip",
+                "doc": "Setting signals from APP to VIP signal_name --> P_intPD_AI_ATG_AVL value --> 1",
+                "args": [
+                    {
+                        "name": "signal_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "send_signal_vip_to_ap",
+                "doc": "Setting signals from VIP to APP signal_name --> P_intPD_AI_ATG_AVL value --> 1",
+                "args": [
+                    {
+                        "name": "signal_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Lauterbach Control",
+        "keywords": [
+            {
+                "name": "lauterbach_connect",
+                "doc": "Connects to Lauterbach TRACE32 hardware"
+            },
+            {
+                "name": "launch_lauterbach",
+                "doc": "Launches the TRACE32 application (T32) if it is not already running"
+            },
+            {
+                "name": "lauterbach_sendcmd",
+                "doc": "Sends one or more TRACE32 commands",
+                "args": [
+                    {
+                        "name": "commands",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_load_CMMfile",
+                "doc": "Loads and executes a .cmm script file in TRACE32",
+                "args": [
+                    {
+                        "name": "file_path",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_write_variable",
+                "doc": "writes a value to a variable",
+                "args": [
+                    {
+                        "name": "variable_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "variablevalue",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_read_variable",
+                "doc": "Fetches the value of a variable from the target",
+                "args": [
+                    {
+                        "name": "variable_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_read_variable_compare",
+                "doc": "Fetches the value of a variable from the target and compares with expected value",
+                "args": [
+                    {
+                        "name": "var_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_write_memory",
+                "doc": "Writes a value to a memory location (or register).",
+                "args": [
+                    {
+                        "name": "name",
+                        "default": ""
+                    },
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_read_memory",
+                "doc": "Reads a value from a memory location (or register).",
+                "args": [
+                    {
+                        "name": "name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "lauterbach_disconnect",
+                "doc": "Disconnects from TRACE32 session"
+            },
+            {
+                "name": "lauterbach_Flash",
+                "doc": "Performs flashing",
+                "args": [
+                    {
+                        "name": "path",
+                        "default": ""
+                    },
+                    {
+                        "name": "access_variables",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Vision IC",
+        "keywords": [
+            {
+                "name": "validate_image",
+                "doc": "Validate IC Image, After using capture image keyword use the keyword to create custom library",
+                "args": [
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "validate_image_on_off",
+                "doc": "Validate Image, After using capture image keyword use the keyword to create custom library",
+                "args": [
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "validate_image_ecu",
+                "doc": "Validate Image captured using screenshot function, After using capture image keyword use the keyword to create custom library",
+                "args": [
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "validate_android_image",
+                "doc": "Validate android Image, After using capture image keyword use the keyword to create custom library",
+                "args": [
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Gopel Framegrabber",
+        "keywords": [
+            {
+                "name": "capture_framegrabber_image",
+                "doc": "Capture IC Image and verified with vision comparision",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_framegrabber_image_and_text",
+                "doc": "Capture IC Image with text data and verified with vision comparision",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    },
+                    {
+                        "name": "ocr_lan",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_text",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_framegrabber_image_for_flash",
+                "doc": "Used to capture flash telltale",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "freq",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_framegrabber_image_on_off",
+                "doc": "Capture image for image verification and on/off time is given in ms",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "on_time",
+                        "default": ""
+                    },
+                    {
+                        "name": "off_time",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_ecu_framegrabber_image",
+                "doc": "Capture IC Image using screenshot function for IC and verified with vision comparision",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_ecu_framegrabber_image_and_text",
+                "doc": "Capture IC Image with text data using screenshot function for IC",
+                "args": [
+                    {
+                        "name": "captured_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "reference_image_name",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_type_key",
+                        "default": ""
+                    },
+                    {
+                        "name": "ocr_lan",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected_text",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "JIRA Control",
+        "keywords": [
+            {
+                "name": "Get Test Cases With Test Plan Id",
+                "doc": "Keyword to to get testcases with test_plan_id as input",
+                "args": [
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Cases With Summary",
+                "doc": "Keyword to get testcases with summary",
+                "args": [
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "is_test_set",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Case Steps Data And Expected Results",
+                "doc": "Keyword to get Testcase steps, Data and expected Result",
+                "args": [
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Cases For Execution Id",
+                "doc": "Keyword to get testcase from test execution id",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Read Test Execution Id",
+                "doc": "Function to get Test execution from Test Plan ID's",
+                "args": [
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Failed Test Cases Using Execution Id",
+                "doc": "Function to get Test cases from test execution for reexecution based on status != Pass",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Execution By Result Status",
+                "doc": "Function to get Test cases execution status",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "status",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Plan Summary",
+                "doc": "Function to create summary for test execution from test plan and CTP details",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Sets From Project",
+                "doc": "Function to get Test set data",
+                "args": [
+                    {
+                        "name": "project",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get Test Cases Using Label",
+                "doc": "Function to get Test set data in Jira_extract_dttpsw.csv format",
+                "args": [
+                    {
+                        "name": "label",
+                        "default": ""
+                    },
+                    {
+                        "name": "project",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Upload Result To Jira",
+                "doc": "Function to upload Testcases results to Jira",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "summary",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "result_csv_file_path",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Update Test Step Result",
+                "doc": "Function to upload Testcases results via post request",
+                "args": [
+                    {
+                        "name": "username",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_execution_key",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_strt_time",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_stp_time",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_plan_key",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_key",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Update Test Execution Comment",
+                "doc": "Function to upload Testcases execution comment",
+                "args": [
+                    {
+                        "name": "final_comment",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Upload Test Execution Attachment",
+                "doc": "Function to upload Testcases execution attachment",
+                "args": [
+                    {
+                        "name": "file",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Create Execution",
+                "doc": "Function to create new execution for existing test plan. Returns the execution ID",
+                "args": [
+                    {
+                        "name": "username",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_plan_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "summary",
+                        "default": ""
+                    },
+                    {
+                        "name": "istestset",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Upload New Execution Result",
+                "doc": "Function to upload test results for new execution.",
+                "args": [
+                    {
+                        "name": "username",
+                        "default": ""
+                    },
+                    {
+                        "name": "testplanid",
+                        "default": ""
+                    },
+                    {
+                        "name": "result_dict",
+                        "default": ""
+                    },
+                    {
+                        "name": "summary",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Create Execution With Labels Components",
+                "doc": "Function to create execution with labels.",
+                "args": [
+                    {
+                        "name": "username",
+                        "default": ""
+                    },
+                    {
+                        "name": "data",
+                        "default": ""
+                    },
+                    {
+                        "name": "istestset",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Add Test Case To Execution",
+                "doc": "Keyword to add a new test case to exection",
+                "args": [
+                    {
+                        "name": "test_execution_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_id",
+                        "default": ""
+                    },
+                    {
+                        "name": "test_result",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "SSH Connection",
+        "keywords": [
+            {
+                "name": "Connect to CTP",
+                "doc": "Creates a Paramiko SSH client with CTP provided hostname, username and password available in configsetup.ini",
+                "args": []
+            },
+            {
+                "name": "Close CTP connection",
+                "doc": "Closes the SSH connection instance with CTP",
+                "args": []
+            },
+            {
+                "name": "Collect CTP Logs",
+                "doc": "Based on input collect .log/.png/.txt/.zip from CTP",
+                "args": [
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Get CTP Info",
+                "doc": "Get CTP related info through ssh connection",
+                "args": [
+                    {
+                        "name": "command",
+                        "default": ""
+                    },
+                    {
+                        "name": "timeout",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Execute DC Command",
+                "doc": "Executes a command in debug console mode and returns the output as list of stdout lines",
+                "args": [
+                    {
+                        "name": "command",
+                        "default": ""
+                    },
+                    {
+                        "name": "timeout",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Execute Root Command",
+                "doc": "Executes a command in the CTP SSH filesystem leel and returns the output as list of stdout lines",
+                "args": [
+                    {
+                        "name": "command",
+                        "default": ""
+                    },
+                    {
+                        "name": "timeout",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Execute Multi Commands",
+                "doc": "Executes multiple commands in the CTP SSH filesystem leel and returns the output as list of stdout lines",
+                "args": [
+                    {
+                        "name": "commands",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Copy to Device",
+                "doc": "Copies a local file provided in localfilepath (absolute file path) argument to CTP remote path",
+                "args": [
+                    {
+                        "name": "local filepath",
+                        "default": ""
+                    },
+                    {
+                        "name": "remote path",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Copy from Device",
+                "doc": "Copies a file from CTP to local directory of the test setup.",
+                "args": [
+                    {
+                        "name": "remote path",
+                        "default": ""
+                    },
+                    {
+                        "name": "local filepath",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Delete CTP Logs",
+                "doc": "Deletes the CTP log files onboard CTP present in /var/log folder",
+                "args": []
+            },
+            {
+                "name": "Wait for Mqtt Connection",
+                "doc": "API to check for the MQTT connection state => True in debug console and wait for reconnection for timeout. Scenario 1: MQTT is connected, it returns 1. Scenario 2: MQTT is disconnected. It waits for reconnection as per timeout period and performs mqtt connect in debug console if connect parameter is True (by default it is False)",
+                "args": [
+                    {
+                        "name": "timeout",
+                        "default": ""
+                    },
+                    {
+                        "name": "connect",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "Check CTP Connection Status",
+                "doc": "API to check CTP SSH connection status",
+                "args": [
+                    {
+                        "name": "tcp_timeout",
+                        "default": ""
+                    },
+                    {
+                        "name": "bann_timeout",
+                        "default": ""
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "category": "Relay Ignition Control",
+        "keywords": [
+            {
+                "name": "Connect Ignition Kl15",
+                "doc": "Reconnects back the KL15 power line - CTP startup",
+                "args": []
+            },
+            {
+                "name": "Disconnect Ignition Kl15",
+                "doc": "Disconnects the KL15 power line - which initiates the CTP shutdown",
+                "args": []
+            },
+            {
+                "name": "Connect Digital1 Kl30",
+                "doc": "Connects the KL30 power line",
+                "args": []
+            },
+            {
+                "name": "Disconnect Digital Kl30",
+                "doc": "Disconnects the KL30 power line - Abruptly shuts down CTP",
+                "args": []
+            }
+        ]
+    },
+    {
+        "category": "Playwright",
+        "keywords": [
+            {
+                "name": "open_browser",
+                "doc": "Opens a browser. ${browser_type} --> chromium,firefox,webkit. ${headless}--> True(starting a browser without a graphical user interface (GUI)), False(launch with GUI)",
+                "args": [
+                    {
+                        "name": "browser_type",
+                        "default": ""
+                    },
+                    {
+                        "name": "headless",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "go_to",
+                "doc": "Navigates to a URL. ${url}-->https://example.com",
+                "args": [
+                    {
+                        "name": "url",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "input_text",
+                "doc": "Inputs text into an element. ${selector}--->username. ${text}--->myid",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    },
+                    {
+                        "name": "text",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "click_element",
+                "doc": "Clicks an element. ${selector}--->id=enter(element on the webpage you want to interact with). Gets inner text of an element.",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "wait_until_page_contains",
+                "doc": "Waits for an element to become visible. ${selector} -->text=RFC 2606. ${expected}--> RFC",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    },
+                    {
+                        "name": "expected",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "wait_until_element_visible",
+                "doc": "Waits for an element to become visible. ${selector} -->text=RFC 2606",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "select_dropdown_by_value",
+                "doc": "Selects dropdown option by value. ${selector}--->id=list. ${value}--->Jan",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    },
+                    {
+                        "name": "value",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "select_dropdown_by_text",
+                "doc": "Selects dropdown option by visible text. ${selector}--->id=list. ${value}--->January",
+                "args": [
+                    {
+                        "name": "selector",
+                        "default": ""
+                    },
+                    {
+                        "name": "text",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "capture_screenshot",
+                "doc": "Captures a screenshot. ${file_name}--->image_name(saved with image name)",
+                "args": [
+                    {
+                        "name": "file_name",
+                        "default": ""
+                    }
+                ]
+            },
+            {
+                "name": "close_browser",
+                "doc": "Closes the browser.",
+                "args": []
+            }
+        ]
+    },{
+        "category": "Browser",
+        "subcategories": [
+            {
+                "category": "Navigation",
+                "keywords": [
+                    {
+                        "name": "Open Browser",
+                        "doc": "Opens a new browser instance to the optional url.",
+                        "args": [
+                            {
+                                "name": "url",
+                                "default": "https://www.google.com"
+                            },
+                            {
+                                "name": "browser",
+                                "default": "chrome"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Close Browser",
+                        "doc": "Closes the current browser.",
+                        "args": []
+                    },
+                    {
+                        "name": "Go To",
+                        "doc": "Navigates the current browser window to the provided url.",
+                        "args": [
+                            {
+                                "name": "url",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "category": "Interaction",
+                "keywords": [
+                    {
+                        "name": "Click Element",
+                        "doc": "Click the element identified by locator.",
+                        "args": [
+                            {
+                                "name": "locator",
+                                "default": ""
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Input Text",
+                        "doc": "Types the given text into the text field identified by locator.",
+                        "args": [
+                            {
+                                "name": "locator",
+                                "default": ""
+                            },
+                            {
+                                "name": "text",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+	{
+        "category": "Custom Library",
+        "subcategories": [
+            {
+                "category": "User Management",
+                "keywords": [
+                    {
+                        "name": "Create User",
+                        "doc": "Creates a new user.",
+                        "args": [
+                            {
+                                "name": "username",
+                                "default": ""
+                            },
+                            {
+                                "name": "password",
+                                "default": ""
+                            },
+                            {
+                                "name": "role",
+                                "default": "guest"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Delete User",
+                        "doc": "Deletes a user.",
+                        "args": [
+                            {
+                                "name": "username",
+                                "default": ""
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]
