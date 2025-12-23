@@ -1,3 +1,8 @@
+"""
+Designed and Implemented by: Girish Subramanya <girish.subramanya@daimlertruck.com>
+Date: 2025-12-23
+Version: 1
+"""
 from PIL import Image
 import os
 

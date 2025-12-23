@@ -1,3 +1,8 @@
+/*
+Designed and Implemented by: Girish Subramanya <girish.subramanya@daimlertruck.com>
+Date: 2025-12-23
+Version: 1
+*/
 document.addEventListener('DOMContentLoaded', () => {
     // Data structures
     let robotData = {

@@ -1,3 +1,8 @@
+"""
+Designed and Implemented by: Girish Subramanya <girish.subramanya@daimlertruck.com>
+Date: 2025-12-23
+Version: 1
+"""
 import sqlite3
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash

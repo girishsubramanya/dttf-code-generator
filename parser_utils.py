@@ -1,3 +1,8 @@
+"""
+Designed and Implemented by: Girish Subramanya <girish.subramanya@daimlertruck.com>
+Date: 2025-12-23
+Version: 1
+"""
 from robot.api import get_model
 from robot.parsing.model.blocks import TestCaseSection, SettingSection, VariableSection
 from robot.parsing.model.statements import TestCaseName, KeywordCall, Variable

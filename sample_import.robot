@@ -1,3 +1,7 @@
+# Designed and Implemented by: Girish Subramanya <girish.subramanya@daimlertruck.com>
+# Date: 2025-12-23
+# Version: 1
+
 *** Settings ***
 Library    SeleniumLibrary
 Resource    keywords.robot
