@@ -2,6 +2,11 @@
 
 A web-based tool for creating DTTF Framework test cases using a drag-and-drop interface.
 
+## Metadata
+- **Designed and Implemented by**: Girish Subramanya <girish.subramanya@daimlertruck.com>
+- **Date**: 2025-12-23
+- **Version**: 1
+
 ## Features
 
 - **Drag and Drop**: Create test cases by dragging keywords from a customizable library.
